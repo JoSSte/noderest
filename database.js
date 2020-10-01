@@ -3,8 +3,7 @@ const epilogue = require('epilogue')
 
 const database = new Sequelize({
   dialect: 'sqlite',
-  storage: './test.sqlite',
-  operatorsAliases: false
+  storage: './test.sqlite'
 })
 
 const Part = database.define('parts', {
