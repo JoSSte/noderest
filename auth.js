@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     const [authType, token] = authorization.trim().split(' ')
     if (authType !== 'Bearer') throw new Error('Expected a Bearer token')
 
-    const { claims } = await oktaJwtVerifier.verifyAccessToken(token)
+    const { claims } = await oktaJwtVerifier.verifyAccessToken(token, 'api://default')
     if (!claims.scp.includes(process.env.SCOPE)) {
       throw new Error('Could not verify the proper scope')
     }
