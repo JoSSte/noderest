@@ -229,7 +229,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJraWQiOiJESFJocHJQWW4xbTlhLVl5bWxiLTdQbXBYdHNnbE5GQXB6dm9nXzZpMkFNIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULl9oWjdIek04ZS1leDhqWlZBcGlpSFBzX29zcTY0UU5fcmw5WUxTQ3VsVkEiLCJpc3MiOiJodHRwczovL2Rldi00NTU4ODYub2t0YS5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiJhcGk6Ly9kZWZhdWx0IiwiaWF0IjoxNjAxNTg5MzA2LCJleHAiOjE2MDE1OTI5MDYsImNpZCI6IjBvYTEzcGU1MnNpVlhPcktmNHg3Iiwic2NwIjpbInBhcnRzX21hbmFnZXIiXSwic3ViIjoiMG9hMTNwZTUyc2lWWE9yS2Y0eDcifQ.FVIYrKXlceiPPdrJNe4Tct7ev_Xw5QTZ01pyeuurkIsr1dE43VE1Wr0coPBHcXJ-BIreI3rqVtn3QVWFsayjzOH6ZBPeqYX_sKslIbIV8qfC1Lo--XuJALNa9NxjViE8VKs1o4SSqeggkEwDWefT80xXsfyeSIURoObkTYbvoGYBtau5KGgAdOhyYHN04y9wEsLId9dmBtzZVaAZBE-vTS-RB8vtNSP0mG7WZKpKSOtwx5gkhF7e5RjdDNheh6kWxvRfC5q7O3LMw2MLPv29ODLrbdAJCR_Co9wmg9J7fBmsETMyT5XX14o_1wMmjQUhU_SiW6_F_vkfNOvGsTnBqg",
+									"value": "{{parts_bearer_token}}",
 									"type": "string"
 								}
 							]
