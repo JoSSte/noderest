@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "489c8c3d-ed4f-44da-adc0-618a4b815d36",
+		"name": "parts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "authorize",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "be21a9c8-b457-441d-80b4-41703acd367f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7d183a0-7b8f-43b6-b5a3-63e741824d3a",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"parts_bearer_token\",data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{CLIENT_SECRET}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{CLIENT_ID}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "parts_manager",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ISSUER}}/v1/token",
+							"host": [
+								"{{ISSUER}}"
+							],
+							"path": [
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "tests",
+			"item": [
+				{
+					"name": "Create Part",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{parts_bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"partNumber\": \"abc-124\",\n  \"modelNumber\": \"xyz-789\",\n  \"name\": \"Alphabet Soup\",\n  \"description\": \"Soup with letters and numbers in it\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/parts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"parts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Parts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{parts_bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/parts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"parts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET last part",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{parts_bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/parts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"parts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE first part",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJESFJocHJQWW4xbTlhLVl5bWxiLTdQbXBYdHNnbE5GQXB6dm9nXzZpMkFNIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULl9oWjdIek04ZS1leDhqWlZBcGlpSFBzX29zcTY0UU5fcmw5WUxTQ3VsVkEiLCJpc3MiOiJodHRwczovL2Rldi00NTU4ODYub2t0YS5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiJhcGk6Ly9kZWZhdWx0IiwiaWF0IjoxNjAxNTg5MzA2LCJleHAiOjE2MDE1OTI5MDYsImNpZCI6IjBvYTEzcGU1MnNpVlhPcktmNHg3Iiwic2NwIjpbInBhcnRzX21hbmFnZXIiXSwic3ViIjoiMG9hMTNwZTUyc2lWWE9yS2Y0eDcifQ.FVIYrKXlceiPPdrJNe4Tct7ev_Xw5QTZ01pyeuurkIsr1dE43VE1Wr0coPBHcXJ-BIreI3rqVtn3QVWFsayjzOH6ZBPeqYX_sKslIbIV8qfC1Lo--XuJALNa9NxjViE8VKs1o4SSqeggkEwDWefT80xXsfyeSIURoObkTYbvoGYBtau5KGgAdOhyYHN04y9wEsLId9dmBtzZVaAZBE-vTS-RB8vtNSP0mG7WZKpKSOtwx5gkhF7e5RjdDNheh6kWxvRfC5q7O3LMw2MLPv29ODLrbdAJCR_Co9wmg9J7fBmsETMyT5XX14o_1wMmjQUhU_SiW6_F_vkfNOvGsTnBqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/parts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"parts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
