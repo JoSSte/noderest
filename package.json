@@ -1,0 +1,26 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "parts catalog",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoSSte/noderest.git"
+  },
+  "author": "JoSSte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoSSte/noderest/issues"
+  },
+  "homepage": "https://github.com/JoSSte/noderest#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "util": "^0.11.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
+}
