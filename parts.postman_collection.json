@@ -103,6 +103,22 @@
 			"item": [
 				{
 					"name": "Create Part",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ff5045f-20f4-4b74-9648-1b0c9aa5860f",
+								"exec": [
+									"const rndPart = _.random(111, 999)\r",
+									"const rndModel = _.random(111, 999)\r",
+									"\r",
+									"pm.globals.set('partNumber', 'prt-'+rndPart);\r",
+									"pm.globals.set('modelNumber', 'mdl-'+rndModel);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -123,7 +139,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"partNumber\": \"abc-124\",\n  \"modelNumber\": \"xyz-789\",\n  \"name\": \"Alphabet Soup\",\n  \"description\": \"Soup with letters and numbers in it\"\n}"
+							"raw": "{\n  \"partNumber\": \"{{partNumber}}\",\n  \"modelNumber\": \"{{modelNumber}}\",\n  \"name\": \"Alphabet Soup\",\n  \"description\": \"Soup with letters and numbers in it\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/parts",
