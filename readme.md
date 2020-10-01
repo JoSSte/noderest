@@ -21,3 +21,6 @@ https://developer.okta.com/blog/2018/08/21/build-secure-rest-api-with-node
 ## Oauth2 Links:
 * https://resources.infosecinstitute.com/securing-web-apis-part-ii-creating-an-api-authenticated-with-oauth-2-in-node-js/
 * https://oauth.net/code/nodejs/
+
+## Expanding:
+* MySQL backend, organizing the app: https://bezkoder.com/node-js-express-sequelize-mysql/
