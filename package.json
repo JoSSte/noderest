@@ -19,6 +19,7 @@
   "dependencies": {
     "epilogue": "^0.7.1",
     "express": "^4.17.1",
+    "finale-rest": "^1.1.1",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0",
     "util": "^0.11.1"
