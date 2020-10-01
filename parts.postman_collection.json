@@ -139,7 +139,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"partNumber\": \"{{partNumber}}\",\n  \"modelNumber\": \"{{modelNumber}}\",\n  \"name\": \"Alphabet Soup\",\n  \"description\": \"Soup with letters and numbers in it\"\n}"
+							"raw": "{\n  \"partNumber\": \"{{partNumber}}\",\n  \"modelNumber\": \"{{modelNumber}}\",\n  \"name\": \"{{$randomProductAdjective}} {{$randomProductName}}\",\n  \"description\": \"{{$randomWords}}\"\n}"
 						},
 						"url": {
 							"raw": "localhost:3000/parts",
