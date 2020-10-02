@@ -6,7 +6,7 @@ This is to test nodeJS as a rest interface backend
 ## Usage
 Run the server with `npm test && node .`
 
-Run the client with `node ./client.js http://localhost:3000/parts`
+Run the client with `node ./src/client/client.js http://localhost:3000/parts`
 
 ## Inspiration
 ### Original guide

@@ -2,7 +2,7 @@
   "name": "rest-api",
   "version": "1.0.0",
   "description": "parts catalog",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "scripts": {
     "test": "standard"
   },
